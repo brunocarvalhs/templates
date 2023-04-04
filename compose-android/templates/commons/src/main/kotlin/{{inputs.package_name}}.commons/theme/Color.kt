@@ -1,4 +1,4 @@
-package br.com.brunocarvalhs.myapplication.ui.theme
+package {{inputs.package_name}}.commons.theme
 
 import androidx.compose.ui.graphics.Color
 

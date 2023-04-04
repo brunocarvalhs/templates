@@ -60,4 +60,11 @@ object Versions {
         const val GLIDE = "4.11.0"
         const val GLIDE_COMPILER = "4.11.0"
     }
+
+    object Compose {
+        const val BOM = "2023.01.00"
+        const val ACTIVITY = "1.6.1"
+        const val VIEW_MODEL = "2.6.0"
+        const val NAVIGATION = "2.5.3"
+    }
 }

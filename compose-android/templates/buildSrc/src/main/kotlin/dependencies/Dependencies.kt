@@ -84,4 +84,27 @@ object Dependencies {
         const val GLIDE_COMPILER =
             "com.github.bumptech.glide:compiler:${Versions.Glide.GLIDE_COMPILER}"
     }
+
+    object Compose {
+        const val BOM = "androidx.compose:compose-bom:${Versions.Compose.BOM}"
+        const val MATERIAL_YOU = "androidx.compose.material3:material3"
+        const val MATERIAL = "androidx.compose.material:material"
+        const val FOUNDATION = "androidx.compose.foundation:foundation"
+        const val UI = "androidx.compose.ui:ui"
+        const val UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview"
+        const val UI_TOOLING_PREVIEW_DEBUG = "androidx.compose.ui:ui-tooling"
+
+        const val UI_TEST = "androidx.compose.ui:ui-test-junit4"
+        const val UI_TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest"
+
+        const val MATERIAL_ICONS_CORE = "androidx.compose.material:material-icons-core"
+        const val MATERIAL_ICONS_EXTENDED = "androidx.compose.material:material-icons-extended"
+        const val MATERIAL_WINDOW = "androidx.compose.material3:material3-window-size-class"
+
+        const val ACTIVITY = "androidx.activity:activity-compose:${Versions.Compose.ACTIVITY}"
+        const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-compose${Versions.Compose.VIEW_MODEL}"
+        const val LIVE_DATA = "androidx.compose.runtime:runtime-livedata"
+
+        const val NAVIGATION = "androidx.navigation:navigation-compose:${Versions.Compose.NAVIGATION}"
+    }
 }
