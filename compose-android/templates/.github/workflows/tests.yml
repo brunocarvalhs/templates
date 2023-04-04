@@ -1,3 +1,4 @@
+{% raw %}
 name: Android Tests
 
 on:
@@ -143,3 +144,4 @@ jobs:
           message: "Lint revisado com sucesso, aparentemente está tudo certo."
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           reactions: "+1"
+{% endraw %}

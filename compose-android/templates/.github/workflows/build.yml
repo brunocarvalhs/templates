@@ -1,3 +1,4 @@
+{% raw %}
 name: Build Application Debug
 on:
   push:
@@ -8,6 +9,7 @@ env:
   JDK_VERSION: 11
   GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx3072m"
   BUILD_TOOLS_VERSION: "30.0.2"
+  APP_NAME: "{{ module_name }}"
 
 jobs:
   preparing_environment:
@@ -111,13 +113,13 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          name: app-${{ env.version }}-${{ env.date }}-apk
+          name: ${{ env.APP_NAME }}-${{ env.version }}-${{ env.date }}-apk
           path: ${{ github.workspace}} build/debug/signed/*.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          name: app-${{ env.version }}-${{ env.date }}-aab
+          name: ${{ env.APP_NAME }}-${{ env.version }}-${{ env.date }}-aab
           path: ${{ github.workspace}} build/debug/signed/*.aab
 
       - name: Create Branch
@@ -127,3 +129,4 @@ jobs:
         with:
           branch: release/v${{ env.VERSION }}
           sha: '${{ github.event.pull_request.head.sha }}'
+{% endraw %}
