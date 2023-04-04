@@ -13,7 +13,7 @@ dependencyResolutionManagement {
         maven(url = "https://jitpack.io")
     }
 }
-rootProject.name = "{{inputs.project_name}}"
+rootProject.name = "{{module_name}}"
 include(":{{module_name}}", ":domain", ":data", ":commons")
 
 include(":features:auth")
