@@ -1,4 +1,4 @@
-name: brunocarvalhs-mobile-templates
+name: brunocarvalhs/android-compose
 description: This template generates a standard Android SDK with maven publishing
 types:
   - app-template
