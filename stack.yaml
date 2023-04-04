@@ -1,7 +1,7 @@
 name: brunocarvalhs-android
 description: "Stack para construção de aplicações mobile Android"
 displayName: "Android"
-category: Mobile
+category: Front-end
 source: https://github.com/brunocarvalhs/templates
 compatibility:
   - Android
