@@ -1,0 +1,3 @@
+[submodule "android-sdk-app-template"]
+	path = android-sdk-app-template
+	url = https://github.com/stack-spot/android-sdk-app-template

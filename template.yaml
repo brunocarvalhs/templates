@@ -1,0 +1,19 @@
+name: brunocarvalhs-mobile-templates
+description: This template generates a standard Android SDK with maven publishing
+types:
+  - app-template
+inputs:
+  - label: "Enter the project name:"
+    name: "project_name"
+    type: "text"
+    default: "Project Name"
+  - label: "Enter the Package Name:"
+    name: "package_name"
+    type: "text"
+    default: "br.com.brunocarvalhs"
+  - label: "Enter the Minimum SDK:"
+    name: "minimum_sdk"
+    type: "text"
+    default: "21"
+computed-inputs:
+  module_name: "{{project_name|lower}}"
