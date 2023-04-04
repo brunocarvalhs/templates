@@ -1,3 +1,4 @@
 type: app
 displayName: Inicia o projeto base
+description: Template para projeto Jetpack Compose
 template: brunocarvalhs/compose-android
