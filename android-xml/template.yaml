@@ -14,6 +14,6 @@ inputs:
   - label: "Enter the Minimum SDK:"
     name: "minimum_sdk"
     type: "text"
-    default: "21"
+    default: "16"
 computed-inputs:
   module_name: "{{project_name|lower}}"
