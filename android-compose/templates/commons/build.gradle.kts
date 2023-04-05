@@ -52,9 +52,6 @@ dependencies {
 
     // UI dependencies
     implementation(Dependencies.UI.MATERIAL)
-    implementation(Dependencies.UI.FRAGMENT_KTX)
-    implementation(Dependencies.UI.LIFECYCLE_VIEWMODEL_KTX)
-    implementation(Dependencies.UI.APPCOMPAT)
 
     // Test dependencies
     testImplementation(Dependencies.Test.JUNIT)

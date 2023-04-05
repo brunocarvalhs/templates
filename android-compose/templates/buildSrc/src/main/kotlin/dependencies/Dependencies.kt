@@ -14,22 +14,6 @@ object Dependencies {
 
     object UI {
         const val MATERIAL = "com.google.android.material:material:${Versions.UI.MATERIAL}"
-        const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.UI.FRAGMENT_KTX}"
-        const val LIFECYCLE_VIEWMODEL_KTX =
-            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.UI.LIFECYCLE_VIEWMODEL_KTX}"
-        const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.UI.APPCOMPAT}"
-        const val DATABINDING_COMMON =
-            "androidx.databinding:databinding-common:${Versions.UI.DATABINDING_COMMON}"
-        const val DATABINDING_COMPILER =
-            "androidx.databinding:databinding-compiler:${Versions.UI.DATABINDING_COMPILER}"
-        const val CONSTRAINT_LAYOUT =
-            "androidx.constraintlayout:constraintlayout:${Versions.UI.CONSTRAINT_LAYOUT}"
-        const val COORDINATOR_LAYOUT =
-            "androidx.coordinatorlayout:coordinatorlayout:${Versions.UI.COORDINATOR_LAYOUT}"
-        const val NAVIGATION_FRAGMENT =
-            "androidx.navigation:navigation-fragment-ktx:${Versions.UI.NAVIGATION_FRAGMENT}"
-        const val NAVIGATION_UI =
-            "androidx.navigation:navigation-ui-ktx:${Versions.UI.NAVIGATION_UI}"
     }
 
     object Test {
@@ -38,11 +22,6 @@ object Dependencies {
         const val ESPRESSO_CORE =
             "androidx.test.espresso:espresso-core:${Versions.Test.ESPRESSO_CORE}"
         const val MOCKITO = "org.mockito:mockito-core:${Versions.Test.MOCKITO}"
-    }
-
-    object Navigation {
-        const val NAVIGATION_RUNTIME =
-            "androidx.navigation:navigation-runtime-ktx:${Versions.Navigation.NAVIGATION_RUNTIME}"
     }
 
     object Hilt {
@@ -79,12 +58,6 @@ object Dependencies {
             "com.squareup.okhttp3:logging-interceptor:${Versions.Network.OKHTTP_LOGGING}"
     }
 
-    object Glide {
-        const val GLIDE = "com.github.bumptech.glide:glide:${Versions.Glide.GLIDE}"
-        const val GLIDE_COMPILER =
-            "com.github.bumptech.glide:compiler:${Versions.Glide.GLIDE_COMPILER}"
-    }
-
     object Compose {
         const val BOM = "androidx.compose:compose-bom:${Versions.Compose.BOM}"
         const val MATERIAL_YOU = "androidx.compose.material3:material3"
@@ -102,7 +75,7 @@ object Dependencies {
         const val MATERIAL_WINDOW = "androidx.compose.material3:material3-window-size-class"
 
         const val ACTIVITY = "androidx.activity:activity-compose:${Versions.Compose.ACTIVITY}"
-        const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-compose${Versions.Compose.VIEW_MODEL}"
+        const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.VIEW_MODEL}"
         const val LIVE_DATA = "androidx.compose.runtime:runtime-livedata"
 
         const val NAVIGATION = "androidx.navigation:navigation-compose:${Versions.Compose.NAVIGATION}"

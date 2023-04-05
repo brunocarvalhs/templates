@@ -67,12 +67,13 @@ android {
         sourceCompatibility = AndroidConfig.JAVA_VERSION
         targetCompatibility = AndroidConfig.JAVA_VERSION
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.2"
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        viewBinding = true
-        dataBinding = true
         compose = true
     }
     packagingOptions {
@@ -101,16 +102,6 @@ dependencies {
     implementation(Dependencies.Core.LIFECYCLE_RUNTIME)
     implementation(Dependencies.Core.LIFECYCLE_LIVEDATA)
     implementation(Dependencies.Core.LIFECYCLE_VIEWMODEL)
-
-    // UI dependencies
-    implementation(Dependencies.UI.MATERIAL)
-    implementation(Dependencies.UI.APPCOMPAT)
-    implementation(Dependencies.UI.FRAGMENT_KTX)
-    implementation(Dependencies.UI.DATABINDING_COMMON)
-    implementation(Dependencies.UI.CONSTRAINT_LAYOUT)
-    implementation(Dependencies.UI.COORDINATOR_LAYOUT)
-    implementation(Dependencies.UI.NAVIGATION_FRAGMENT)
-    implementation(Dependencies.UI.NAVIGATION_UI)
 
     // Test dependencies
     testImplementation(Dependencies.Test.JUNIT)
