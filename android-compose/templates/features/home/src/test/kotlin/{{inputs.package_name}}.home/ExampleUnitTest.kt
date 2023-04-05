@@ -1,4 +1,4 @@
-package {{inputs.package_name}}.{{module_name}}
+package {{inputs.package_name}}.home
 
 import org.junit.Test
 

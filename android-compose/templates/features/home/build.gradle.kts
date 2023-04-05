@@ -1,36 +1,32 @@
 import config.AndroidConfig
-import interfaces.BuildType
-import flavor.BuildTypeRelease
-import flavor.BuildTypeDebug
 import dependencies.Dependencies
 
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
-    namespace = AndroidConfig.APP_ID + ".commons"
+    namespace = AndroidConfig.APP_ID + ".home"
     compileSdk = AndroidConfig.COMPILE_SDK_VERSION
 
     defaultConfig {
         minSdk = AndroidConfig.MIN_SDK_VERSION
         targetSdk = AndroidConfig.TARGET_SDK_VERSION
 
-        testInstrumentationRunner = AndroidConfig.TEST_INSTRUMENTATION_RUNNER
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
+        release {
+            isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
-        }
-        getByName("debug") {
-            isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
-            isJniDebuggable = BuildTypeDebug.isDebuggable
         }
     }
     compileOptions {
@@ -49,17 +45,22 @@ android {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":domain")))
+    implementation(project(mapOf("path" to ":commons")))
+
     implementation(Dependencies.Core.CORE_KTX)
     implementation(Dependencies.Core.LIFECYCLE_RUNTIME_KTX)
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
     implementation(Dependencies.Compose.UI)
     implementation(Dependencies.Compose.UI_TOOLING_PREVIEW)
     implementation(Dependencies.Compose.MATERIAL_YOU)
-    implementation("androidx.compose.material:material:1.4.0")
     testImplementation(Dependencies.Testing.JUNIT)
     androidTestImplementation(Dependencies.Testing.ANDROIDX_JUNIT)
     androidTestImplementation(Dependencies.Testing.ESPRESSO_CORE)
     androidTestImplementation(Dependencies.Testing.COMPOSE_UI_TEST_JUNIT4)
     debugImplementation(Dependencies.Testing.COMPOSE_UI_TOOLING)
     debugImplementation(Dependencies.Testing.COMPOSE_UI_TEST_MANIFEST)
+    implementation(Dependencies.Compose.NAVIGATION)
+    implementation(Dependencies.Hilt.ANDROID)
+    kapt(Dependencies.Hilt.ANDROID_COMPILER)
 }

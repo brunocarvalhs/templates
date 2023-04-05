@@ -25,6 +25,7 @@ android {
             useSupportLibrary = true
         }
     }
+
     android {
         signingConfigs {
             create("release") {
@@ -67,68 +68,44 @@ android {
         sourceCompatibility = AndroidConfig.JAVA_VERSION
         targetCompatibility = AndroidConfig.JAVA_VERSION
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.2"
-    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = AndroidConfig.KOTLIN_COMPILE_COMPOSE
+    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    lint {
-        abortOnError = false
-        disable += "MissingTranslation"
-    }
-    kapt {
-        correctErrorTypes = true
-    }
 }
 
 dependencies {
-    // Modules
-    implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":domain")))
+    implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":commons")))
 
-    // Core dependencies
-    implementation(Dependencies.Core.KTX)
+    implementation(project(mapOf("path" to ":features:home")))
+
+    implementation(Dependencies.Core.CORE_KTX)
     implementation(Dependencies.Core.MULTIDEX)
-    implementation(Dependencies.Core.LIFECYCLE_RUNTIME)
-    implementation(Dependencies.Core.LIFECYCLE_LIVEDATA)
-    implementation(Dependencies.Core.LIFECYCLE_VIEWMODEL)
-
-    // Test dependencies
-    testImplementation(Dependencies.Test.JUNIT)
-    androidTestImplementation(Dependencies.Test.JUNIT_ANDROID)
-    androidTestImplementation(Dependencies.Test.ESPRESSO_CORE)
-
-    // Hilt dependencies
-    implementation(Dependencies.Hilt.ANDROID)
-    kapt(Dependencies.Hilt.ANDROID_COMPILER)
-    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0")
-
-    // Compose
-    implementation(platform(Dependencies.Compose.BOM))
-    androidTestImplementation(platform(Dependencies.Compose.BOM))
-    implementation(Dependencies.Compose.MATERIAL_YOU)
-    implementation(Dependencies.Compose.MATERIAL)
-    implementation(Dependencies.Compose.FOUNDATION)
+    implementation(Dependencies.Core.LIFECYCLE_RUNTIME_KTX)
+    implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
     implementation(Dependencies.Compose.UI)
     implementation(Dependencies.Compose.UI_TOOLING_PREVIEW)
-    debugImplementation(Dependencies.Compose.UI_TOOLING_PREVIEW_DEBUG)
-    androidTestImplementation(Dependencies.Compose.UI_TEST)
-    debugImplementation(Dependencies.Compose.UI_TEST_MANIFEST)
-    implementation(Dependencies.Compose.MATERIAL_ICONS_CORE)
-    implementation(Dependencies.Compose.MATERIAL_ICONS_EXTENDED)
-    implementation(Dependencies.Compose.MATERIAL_WINDOW)
-    implementation(Dependencies.Compose.ACTIVITY)
-    implementation(Dependencies.Compose.VIEW_MODEL)
-    implementation(Dependencies.Compose.LIVE_DATA)
+    implementation(Dependencies.Compose.MATERIAL_YOU)
+    implementation("androidx.compose.material:material:1.4.0")
+    testImplementation(Dependencies.Testing.JUNIT)
+    androidTestImplementation(Dependencies.Testing.ANDROIDX_JUNIT)
+    androidTestImplementation(Dependencies.Testing.ESPRESSO_CORE)
+    androidTestImplementation(Dependencies.Testing.COMPOSE_UI_TEST_JUNIT4)
+    debugImplementation(Dependencies.Testing.COMPOSE_UI_TOOLING)
+    debugImplementation(Dependencies.Testing.COMPOSE_UI_TEST_MANIFEST)
     implementation(Dependencies.Compose.NAVIGATION)
+    implementation(Dependencies.Hilt.ANDROID)
+    kapt(Dependencies.Hilt.ANDROID_COMPILER)
 }

@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
@@ -13,5 +13,10 @@ dependencyResolutionManagement {
         maven(url = "https://jitpack.io")
     }
 }
-rootProject.name = "{{module_name}}"
-include(":app", ":domain", ":data", ":commons")
+rootProject.name = "{{inputs.project_name}}"
+include(":app")
+include(":domain")
+include(":data")
+include(":commons")
+include(":features")
+include(":features:home")
