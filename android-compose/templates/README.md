@@ -1,4 +1,4 @@
-# {{inputs.project_name}}
+# {{module_name}}
 
 ## Recursos
 
@@ -17,4 +17,4 @@ Este projeto está licenciado sob a licença [Nome da licença]. Consulte o arqu
 
 ## Download do Aplicativo
 
-Você pode fazer o download do aplicativo {{inputs.project_name}} na [Google Play]() e [App Store]().
+Você pode fazer o download do aplicativo {{module_name}} na [Google Play]() e [App Store]().

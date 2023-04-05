@@ -10,7 +10,7 @@ object AndroidConfig {
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0.0"
 
-    const val APP_ID = "{{inputs.package_name}}.{{inputs.project_name}}"
+    const val APP_ID = "{{inputs.package_name}}.{{module_name}}"
     const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 
     val JAVA_VERSION = JavaVersion.VERSION_1_8

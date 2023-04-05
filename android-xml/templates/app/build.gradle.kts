@@ -45,7 +45,7 @@ android {
         }
         buildTypes {
             getByName("release") {
-                resValue("string", "app_name", "{{inputs.project_name}}")
+                resValue("string", "app_name", "{{module_name}}")
 
                 isDebuggable = false
                 isJniDebuggable = false
@@ -55,7 +55,7 @@ android {
                 )
             }
             getByName("debug") {
-                resValue("string", "app_name", "{{inputs.project_name}} - Debug")
+                resValue("string", "app_name", "{{module_name}} - Debug")
 
                 applicationIdSuffix = ".debug"
                 isMinifyEnabled = false
