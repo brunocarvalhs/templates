@@ -4,4 +4,4 @@ import androidx.multidex.MultiDexApplication
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class MyApplicationApplication : MultiDexApplication()
+class {{app_name}}Application : MultiDexApplication()
