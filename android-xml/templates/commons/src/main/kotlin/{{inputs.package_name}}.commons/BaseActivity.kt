@@ -17,11 +17,8 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity(), ManagerToolb
         super.onCreate(savedInstanceState, persistentState)
         _binding = createBinding(layoutInflater)
         setContentView(binding.root)
-        setupToolbar()
         setupNavigation()
     }
-
-    abstract fun setupToolbar()
 
     override fun onDestroy() {
         super.onDestroy()

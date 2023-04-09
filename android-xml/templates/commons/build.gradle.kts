@@ -7,6 +7,8 @@ import dependencies.Dependencies
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+//    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -39,24 +41,24 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
     kotlinOptions {
-        jvmTarget = AndroidConfig.JAVA_VERSION.toString()
+        jvmTarget = "1.8"
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
 dependencies {
-    // Core dependencies
-    implementation(Dependencies.Core.KTX)
-
-    // UI dependencies
-    implementation(Dependencies.UI.MATERIAL)
-    implementation(Dependencies.UI.FRAGMENT_KTX)
-    implementation(Dependencies.UI.LIFECYCLE_VIEWMODEL_KTX)
-    implementation(Dependencies.UI.APPCOMPAT)
-
-    // Test dependencies
-    testImplementation(Dependencies.Test.JUNIT)
-    androidTestImplementation(Dependencies.Test.JUNIT_ANDROID)
-    androidTestImplementation(Dependencies.Test.ESPRESSO_CORE)
+    implementation(Dependencies.CORE_KTX)
+    implementation(Dependencies.APPCOMPAT)
+    implementation(Dependencies.MATERIAL)
+    implementation(Dependencies.CONSTRAINT_LAYOUT)
+    testImplementation(Dependencies.JUNIT)
+    androidTestImplementation(Dependencies.ANDROIDX_JUNIT)
+    androidTestImplementation(Dependencies.ESPRESSO_CORE)
 }

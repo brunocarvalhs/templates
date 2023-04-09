@@ -1,7 +1,5 @@
 import config.AndroidConfig
 import dependencies.Dependencies
-import flavor.BuildTypeDebug
-import flavor.BuildTypeRelease
 
 plugins {
     id("com.android.library")
@@ -11,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.APP_ID + ".data"
+    namespace = AndroidConfig.APP_ID + ".home"
     compileSdk = AndroidConfig.COMPILE_SDK_VERSION
 
     defaultConfig {
@@ -20,19 +18,23 @@ android {
 
         testInstrumentationRunner = AndroidConfig.TEST_INSTRUMENTATION_RUNNER
         consumerProguardFiles("consumer-rules.pro")
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
+        release {
+            isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
-        getByName("debug") {
-            isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
-            isJniDebuggable = BuildTypeDebug.isDebuggable
-        }
+    }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
     compileOptions {
         sourceCompatibility = AndroidConfig.JAVA_VERSION
@@ -45,11 +47,14 @@ android {
 
 dependencies {
     implementation(project(mapOf("path" to ":domain")))
+    implementation(project(mapOf("path" to ":commons")))
 
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
     implementation(Dependencies.CONSTRAINT_LAYOUT)
+    implementation(Dependencies.NAVIGATION_FRAGMENT)
+    implementation(Dependencies.NAVIGATION_UI)
     testImplementation(Dependencies.JUNIT)
     androidTestImplementation(Dependencies.ANDROIDX_JUNIT)
     androidTestImplementation(Dependencies.ESPRESSO_CORE)

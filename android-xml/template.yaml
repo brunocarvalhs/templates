@@ -17,3 +17,4 @@ inputs:
     default: "16"
 computed-inputs:
   module_name: "{{project_name|lower}}"
+  app_name: "{{project_name|title}}"

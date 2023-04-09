@@ -1,4 +1,4 @@
-package {{inputs.package_name}}.{{module_name}}
+package {{inputs.package_name}}.data
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

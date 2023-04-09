@@ -25,6 +25,7 @@ android {
             useSupportLibrary = true
         }
     }
+
     android {
         signingConfigs {
             create("release") {
@@ -32,9 +33,9 @@ android {
                 val keyStoreAlias = System.getenv("KEYSTORE_ALIAS")
                 val keyStoreAliasPassword = System.getenv("KEY_PASSWORD")
                 if (
-                    keyStorePassword != null &&
-                    keyStoreAlias != null &&
-                    keyStoreAliasPassword != null
+                        keyStorePassword != null &&
+                                keyStoreAlias != null &&
+                                keyStoreAliasPassword != null
                 ) {
                     storeFile = file("release.keystore")
                     storePassword = keyStorePassword
@@ -45,17 +46,17 @@ android {
         }
         buildTypes {
             getByName("release") {
-                resValue("string", "app_name", "{{module_name}}")
+                resValue("string", "app_name", "{{app_name}}")
 
                 isDebuggable = false
                 isJniDebuggable = false
                 signingConfig = signingConfigs.getByName("release")
                 proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                        getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
                 )
             }
             getByName("debug") {
-                resValue("string", "app_name", "{{module_name}} - Debug")
+                resValue("string", "app_name", "{{app_name}} - Debug")
 
                 applicationIdSuffix = ".debug"
                 isMinifyEnabled = false
@@ -79,45 +80,25 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    lint {
-        abortOnError = false
-        disable += "MissingTranslation"
-    }
-    kapt {
-        correctErrorTypes = true
-    }
 }
 
 dependencies {
-    // Modules
-    implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":domain")))
+    implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":commons")))
 
-    // Core dependencies
-    implementation(Dependencies.Core.KTX)
-    implementation(Dependencies.Core.MULTIDEX)
-    implementation(Dependencies.Core.LIFECYCLE_RUNTIME)
-    implementation(Dependencies.Core.LIFECYCLE_LIVEDATA)
-    implementation(Dependencies.Core.LIFECYCLE_VIEWMODEL)
+    implementation(project(mapOf("path" to ":features:home")))
 
-    // UI dependencies
-    implementation(Dependencies.UI.MATERIAL)
-    implementation(Dependencies.UI.APPCOMPAT)
-    implementation(Dependencies.UI.FRAGMENT_KTX)
-    implementation(Dependencies.UI.DATABINDING_COMMON)
-    implementation(Dependencies.UI.CONSTRAINT_LAYOUT)
-    implementation(Dependencies.UI.COORDINATOR_LAYOUT)
-    implementation(Dependencies.UI.NAVIGATION_FRAGMENT)
-    implementation(Dependencies.UI.NAVIGATION_UI)
-
-    // Test dependencies
-    testImplementation(Dependencies.Test.JUNIT)
-    androidTestImplementation(Dependencies.Test.JUNIT_ANDROID)
-    androidTestImplementation(Dependencies.Test.ESPRESSO_CORE)
-
-    // Hilt dependencies
+    implementation(Dependencies.CORE_KTX)
+    implementation(Dependencies.APPCOMPAT)
+    implementation(Dependencies.MATERIAL)
+    implementation(Dependencies.MULTIDEX)
+    implementation(Dependencies.CONSTRAINT_LAYOUT)
+    implementation(Dependencies.NAVIGATION_FRAGMENT)
+    implementation(Dependencies.NAVIGATION_UI)
+    testImplementation(Dependencies.JUNIT)
+    androidTestImplementation(Dependencies.ANDROIDX_JUNIT)
+    androidTestImplementation(Dependencies.ESPRESSO_CORE)
     implementation(Dependencies.Hilt.ANDROID)
     kapt(Dependencies.Hilt.ANDROID_COMPILER)
-    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0")
 }
