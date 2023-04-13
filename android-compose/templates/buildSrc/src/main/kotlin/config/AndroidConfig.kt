@@ -15,5 +15,5 @@ object AndroidConfig {
 
     val JAVA_VERSION = JavaVersion.VERSION_1_8
 
-    const val KOTLIN_COMPILE_COMPOSE = "1.4.3"
+    const val KOTLIN_COMPILE_COMPOSE = "1.3.2"
 }
