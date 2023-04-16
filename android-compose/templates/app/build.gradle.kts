@@ -94,7 +94,7 @@ dependencies {
     implementation(Dependencies.Core.CORE_KTX)
     implementation(Dependencies.Core.MULTIDEX)
     implementation(Dependencies.Core.LIFECYCLE_RUNTIME_KTX)
-    implementation platform(Dependencies.BOM.COMPOSE)
+    implementation(platform(Dependencies.BOM.COMPOSE))
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
     implementation(Dependencies.Compose.UI)
     implementation(Dependencies.Compose.UI_TOOLING_PREVIEW)
@@ -106,7 +106,7 @@ dependencies {
     
     androidTestImplementation(Dependencies.Testing.ANDROIDX_JUNIT)
     androidTestImplementation(Dependencies.Testing.ESPRESSO_CORE)
-    androidTestImplementation platform(Dependencies.BOM.COMPOSE)
+    androidTestImplementation(platform(Dependencies.BOM.COMPOSE))
     androidTestImplementation(Dependencies.Testing.COMPOSE_UI_TEST_JUNIT4)
     
     debugImplementation(Dependencies.Testing.COMPOSE_UI_TOOLING)
